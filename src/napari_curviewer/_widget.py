@@ -93,6 +93,9 @@ class ImageThreshold(Container):
             ]
         )
 
+    def _test_func(self):
+        print("test")
+
     def _threshold_im(self):
         image_layer = self._image_layer_combo.value
         if image_layer is None:
