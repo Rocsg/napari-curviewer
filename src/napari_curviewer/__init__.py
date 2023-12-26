@@ -3,9 +3,11 @@ try:
 except ImportError:
     __version__ = "unknown"
 
+# from ._backend import reslice_tiff_image_along_curve(
 from ._reader import napari_get_reader
 from ._sample_data import make_sample_data
 from ._widget import (
+    CurviewImage,
     ExampleQWidget,
     ImageThreshold,
     threshold_autogenerate_widget,
@@ -18,6 +20,7 @@ __all__ = (
     "write_single_image",
     "write_multiple",
     "make_sample_data",
+    "CurviewImage",
     "ExampleQWidget",
     "ImageThreshold",
     "threshold_autogenerate_widget",

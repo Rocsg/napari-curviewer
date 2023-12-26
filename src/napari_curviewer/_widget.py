@@ -28,15 +28,15 @@ References:
 
 Replace code below according to your needs.
 """
-from typing import TYPE_CHECKING
 
+# if TYPE_CHECKING:
+import napari
 from magicgui import magic_factory
 from magicgui.widgets import CheckBox, Container, create_widget
 from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
 from skimage.util import img_as_float
 
-if TYPE_CHECKING:
-    import napari
+from napari_curviewer import _backend, _dialog
 
 
 # Uses the `autogenerate: true` flag in the plugin manifest
@@ -129,3 +129,46 @@ class ExampleQWidget(QWidget):
 
     def _on_click(self):
         print("napari has", len(self.viewer.layers), "layers")
+
+
+class CurviewImage(QWidget):
+    # your QWidget.__init__ can optionally request the napari viewer instance
+    # use a type annotation of 'napari.viewer.Viewer' for any parameter
+    def __init__(self, viewer: "napari.viewer.Viewer"):
+        super().__init__()
+        self.viewer = viewer
+
+        btn_img = QPushButton("Open image!")
+        btn_img.clicked.connect(self._on_click_image)
+        btn_csv = QPushButton("Open CSV!")
+        btn_csv.clicked.connect(self._on_click_csv)
+        btn_reslice = QPushButton("Reslice!")
+        btn_reslice.clicked.connect(self._on_click_reslice)
+
+        self.setLayout(QHBoxLayout())
+        self.layout().addWidget(btn_img)
+        self.layout().addWidget(btn_csv)
+        self.layout().addWidget(btn_reslice)
+
+    def _on_click_image(self):
+        print("napari has", len(self.viewer.layers), "layers")
+        # Open a file chooser looking for a tif image
+        with napari.gui_qt():
+            selected_file = _dialog.select_file()
+
+        if selected_file:
+            print(f"Selected image: {selected_file}")
+            # self.viewer.open(selected_file, plugin='napari_curviewer')
+
+    def _on_click_csv(self):
+        print("napari has", len(self.viewer.layers), "layers")
+        # Open a file chooser looking for a tif image
+        with napari.gui_qt():
+            selected_file = _dialog.select_file()
+
+        if selected_file:
+            print(f"Selected image: {selected_file}")
+            # self.viewer.open(selected_file, plugin='napari_curviewer')
+
+    def _on_click_reslice(self):
+        _backend.reslice_tiff_image_along_curve()

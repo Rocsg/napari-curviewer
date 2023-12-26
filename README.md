@@ -2,7 +2,7 @@
 
 [![License GNU LGPL v3.0](https://img.shields.io/pypi/l/napari-curviewer.svg?color=green)](https://github.com/Rocsg/napari-curviewer/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/napari-curviewer.svg?color=green)](https://pypi.org/project/napari-curviewer)
-[![Python Version](https://img.shields.io/pypi/pyversions/napari-curviewer.svg?color=green)](https://python.org)
+<!--[![Python Version](https://img.shields.io/pypi/pyversions/napari-curviewer.svg?color=green)](https://python.org)-->
 [![tests](https://github.com/Rocsg/napari-curviewer/workflows/tests/badge.svg)](https://github.com/Rocsg/napari-curviewer/actions)
 [![codecov](https://codecov.io/gh/Rocsg/napari-curviewer/branch/main/graph/badge.svg)](https://codecov.io/gh/Rocsg/napari-curviewer)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-curviewer)](https://napari-hub.org/plugins/napari-curviewer)

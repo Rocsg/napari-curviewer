@@ -27,6 +27,9 @@ contributions:
     - id: napari-curviewer.make_function_widget
       python_name: napari_curviewer:threshold_autogenerate_widget
       title: Make threshold function widget
+    - id: napari-curviewer.curview_image
+      python_name: napari_curviewer:CurviewImage
+      title: Curview Image
     - id: napari-curviewer.make_qwidget
       python_name: napari_curviewer:ExampleQWidget
       title: Make example QWidget
@@ -55,3 +58,5 @@ contributions:
       display_name: Autogenerate Threshold
     - command: napari-curviewer.make_qwidget
       display_name: Example QWidget
+    - command: napari-curviewer.curview_image
+      display_name: Curview Image
