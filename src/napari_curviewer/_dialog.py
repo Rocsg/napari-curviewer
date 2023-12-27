@@ -1,4 +1,4 @@
-from qtpy.QtWidgets import QFileDialog
+from qtpy.QtWidgets import QFileDialog, QMessageBox
 
 
 # Fonction pour ouvrir le sélecteur de fichiers et retourner le chemin sélectionné
@@ -18,3 +18,17 @@ def select_file():
         file_path = dialog.selectedFiles()[0]
         return file_path
     return None
+
+
+def popup(message):
+    msg = QMessageBox()
+
+    msg.setWindowTitle("Message from napari-curviewer")
+    msg.setText(message)
+
+    # Set the icon and buttons (optional)
+    msg.setIcon(QMessageBox.Information)
+    msg.setStandardButtons(QMessageBox.Ok)
+
+    # Show the message box
+    msg.exec_()

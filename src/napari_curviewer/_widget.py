@@ -31,12 +31,13 @@ Replace code below according to your needs.
 
 # if TYPE_CHECKING:
 import napari
+import tifffile
 from magicgui import magic_factory
 from magicgui.widgets import CheckBox, Container, create_widget
 from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
 from skimage.util import img_as_float
 
-from napari_curviewer import _backend, _dialog
+from napari_curviewer import _backend, _dialog, _utils
 
 
 # Uses the `autogenerate: true` flag in the plugin manifest
@@ -171,4 +172,13 @@ class CurviewImage(QWidget):
             # self.viewer.open(selected_file, plugin='napari_curviewer')
 
     def _on_click_reslice(self):
-        _backend.reslice_tiff_image_along_curve()
+        # The following line makes appearing a popup saying computation will begin
+        _dialog.popup("Computation starts")
+
+        _, image_path_2, central_line_2 = _utils.get_test_path()
+        _backend.reslice_tiff_image_along_curve(image_path_2, central_line_2)
+        _dialog.popup("Computation finished")
+
+        image = tifffile.imread(image_path_2)
+        viewer = napari.current_viewer()
+        viewer.add_image(image, name="image_path_2")
