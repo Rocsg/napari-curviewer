@@ -3,6 +3,7 @@
     and the next point in the list. The other two vectors are
     computed by cross product in a tricky way.
 """
+
 import csv
 
 import numpy as np
