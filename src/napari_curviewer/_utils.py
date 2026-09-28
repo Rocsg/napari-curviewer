@@ -1,4 +1,5 @@
 """Utility functions for the napari-curviewer package."""
+
 import os
 
 
