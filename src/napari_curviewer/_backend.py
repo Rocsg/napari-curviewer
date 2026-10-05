@@ -1,8 +1,9 @@
-""" Compute the direction cosines from a list of points
-    The direction cosines are the vectors between each point
-    and the next point in the list. The other two vectors are
-    computed by cross product in a tricky way.
+"""Compute the direction cosines from a list of points
+The direction cosines are the vectors between each point
+and the next point in the list. The other two vectors are
+computed by cross product in a tricky way.
 """
+
 import csv
 
 import numpy as np
